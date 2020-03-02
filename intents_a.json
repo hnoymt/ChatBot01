@@ -1,0 +1,32 @@
+{"intents":[
+	{"tag":"greeting",
+	"patterns":["Hi there","How are you","Hello","Good day","Good day","Hello","Hey"],
+	"responses":["Hello, thanks for asking", "Good to see you"],
+	"context":[""]
+	},
+	{"tag":"goodbye",
+	"patterns":["Bye","See you later", "Goodbye"],
+	"responses":["See you!", "Have a nice day"],
+	"context":[""]
+	},
+	{"tag":"thanks",
+	"patterns":["Thanks","Thank you","That's helpful"],
+	"responses":["Happy to help!","My pleasure"],
+	"context":[""]
+	},
+	{"tag":"question",
+		"patterns":["What","Where", "When","Why"],
+		"responses":["ให้ช่วยอะไรไหม","Can I help you?","please give me more info"],
+		"context":[""]
+	},
+	{"tag":"noanswer",
+	"patterns":[],
+	"responses":["Sorry, can't understand you","please give me more info"],
+	"context":[""]
+	},
+	{"tag":"options",
+	"patterns":["How you could kelp me", "What you can do?"],
+	"responses":["I can guide you through adverse drug reaction kist, Blood pressure tracking"],
+	"context":[""]
+	}
+]}
