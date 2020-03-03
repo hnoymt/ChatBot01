@@ -4,19 +4,44 @@
 	"responses":["Hello, thanks for asking", "Good to see you"],
 	"context":[""]
 	},
+	{"tag":"greeting_how",
+		"patterns":["เป็นไง","งะ","งาย","ว่าไง","บายดีป่ะ","สบายดี","สบายดีนะ","สบายดีหรอ","ไง๊","ไง","สบายดีหรอเราอะ","เป็นไงมั่ง","เปงไงเรา",
+			"เปนไง","เปนงาย","ฉบายดี","ซำบายดีบ่","อาการเป็นไง"
+			],
+		"responses":["สบายดีครับ แล้วคุณเป็นยังไงบ้าง","สวัสดีครับ ผม สบายดี ต้องการให้ช่วยอะไรครับ","สวัสดีครับ ผมสบายดี ยินดีที่ได้รับใช้ครับ"],
+		"context":[""]
+	},
+	{"tag":"who",
+		"patterns":["นั่นใคร","ใครพูด",	"แมวพิมพ์หรอ","นี่ใคร","ใคร","นั่นใครอ่ะ","ครัย","น่านคราย","ครายอ่ะ"],
+		"responses":["ผมอัพดุล ยินดีที่ได้รู้จักครับ"],
+		"context":[""]
+	},
+	{"tag":"don_know",
+		"patterns":["ไม่รู้"],
+		"responses":["ให้ผมแนะนำไหม"],
+		"context":[""]
+	},
+	{"tag":"happy",
+		"patterns":["555","อิอิ","ฮิฮิ","หุหุ","เหอะๆ","ถถถ","ฮ่าๆๆ","แหะ","55555555555","ถถถถถถถถถถถถถถ","อิ","ฮิ","55",
+			"5555","55555","อิอิอิ","ถถ","555+","ขำ","55555555","555555","55555+","555555555555555555","hahaha"			
+			],
+		"responses":["555","อิอิ","ฮิฮิ","หุหุ","เหอะๆ","ถถถ","ฮ่าๆๆ","แหะ","55555555555","ถถถถถถถถถถถถถถ","อิ","ฮิ","55",
+			"5555","55555","อิอิอิ","ถถ","555+","ขำ","55555555","555555","55555+","555555555555555555","hahaha", "คุณกำลังมีความสุข","ขำอะไรครับ"],
+		"context":[""]
+	},
 	{"tag":"goodbye",
-	"patterns":["Bye","See you later", "Goodbye"],
+	"patterns":["Bye","See you later", "Goodbye","ลาก่อน"],
 	"responses":["See you!", "Have a nice day"],
 	"context":[""]
 	},
 	{"tag":"thanks",
-	"patterns":["Thanks","Thank you","That's helpful"],
+	"patterns":["Thanks","Thank you","That's helpful","ขอบคุณ"],
 	"responses":["Happy to help!","My pleasure"],
 	"context":[""]
 	},
 	{"tag":"question",
-		"patterns":["What","Where", "When","Why"],
-		"responses":["ให้ช่วยอะไรไหม","Can I help you?","please give me more info"],
+		"patterns":["What","Where", "When","Why","อะไร"],
+		"responses":["ให้ ช่วย อะไร ไหม","Can I help you?","please give me more info"],
 		"context":[""]
 	},
 	{"tag":"noanswer",

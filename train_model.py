@@ -10,6 +10,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
 import random
+from pythainlp.tokenize import word_tokenize
 
 # from google.colab import drive
 # drive.mount('/content/gdrive')
@@ -17,15 +18,19 @@ words=[]
 classes = []
 documents = []
 ignore_words = ['?', '!']
-data_file = open('intents_a.json').read() # ANSI format
+data_file = open('intents_a.json', encoding='UTF-8').read() # ANSI format
 print(data_file)
 intents = json.loads(data_file)
 print(intents)
 
 for intent in intents['intents']:
+    # print(intent)
     for pattern in intent['patterns']:
         #tokenize each word
-        w = nltk.word_tokenize(pattern)
+        # w = nltk.word_tokenize(pattern)
+        # print('pattern=>'+ pattern)
+        w = word_tokenize(pattern,engine='dict')
+        # print(w)
         words.extend(w)
         #add documents in the corpus
         documents.append((w, intent['tag']))
@@ -53,7 +58,7 @@ training = []
 output_empty = [0] * len(classes)
 # training set, bag of words for each sentence
 for doc in documents:
-    print('***********')
+    # print('***********')
     # initialize our bag of words
     bag = []
     # list of tokenized words for the pattern
@@ -62,14 +67,14 @@ for doc in documents:
     # lemmatize each word - create base word, in attempt to represent related words
     pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
     # create our bag of words array with 1, if word match found in current pattern
-    print(pattern_words)
-    print(words)
+    # print(pattern_words)
+    # print(words)
     for w in words:
         bag.append(1) if w in pattern_words else bag.append(0)
     # output is a '0' for each tag and '1' for current tag (for each pattern)
     output_row = list(output_empty)
     output_row[classes.index(doc[1])] = 1
-    print(output_row)
+    # print(output_row)
     training.append([bag, output_row])
 # shuffle our features and turn into np.array
 random.shuffle(training)

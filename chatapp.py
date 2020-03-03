@@ -7,7 +7,7 @@ from tensorflow.keras.models import load_model
 model = load_model('chatbot_model.h5')
 import json
 import random
-intents = json.loads(open('intents_a.json').read())
+intents = json.loads(open('intents_a.json', encoding='UTF-8').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
 
@@ -37,7 +37,7 @@ def predict_class(sentence, model):
     res = model.predict(np.array([p]))[0]
     ERROR_THRESHOLD = 0.25
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
-    print(results)
+    # print(results)
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
@@ -83,7 +83,7 @@ def send():
 
 
 base = Tk()
-base.title("Hello")
+base.title("ถามได้ตอบได้")
 base.geometry("400x500")
 base.resizable(width=FALSE, height=FALSE)
 #Create Chat window
@@ -102,6 +102,10 @@ EntryBox = Text(base, bd=0, bg="white",width="29", height="5", font="Arial")
 #Place all components on the screen
 scrollbar.place(x=376,y=6, height=386)
 ChatLog.place(x=6,y=6, height=386, width=370)
-EntryBox.place(x=128, y=401, height=90, width=265)
-SendButton.place(x=6, y=401, height=90)
+# EntryBox.place(x=128, y=401, height=90, width=265)
+# SendButton.place(x=6, y=401, height=90)
+
+EntryBox.place(x=6, y=401, height=90, width=265)
+SendButton.place(x=266, y=401, height=90, width=125)
+
 base.mainloop()
