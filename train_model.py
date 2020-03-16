@@ -92,12 +92,12 @@ print(train_y)
 # equal to number of intents to predict output intent with softmax
 model = Sequential()
 model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-model.add(Dense(units=6, kernel_initializer='uniform', activation='relu'))
+model.add(Dense(units=64, kernel_initializer='uniform', activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
 
-# model.add(Dense(64, activation='relu'))
+model.add(Dense(64, activation='relu'))
 # model.add(Dropout(0.5))
 
 model.add(Dense(len(train_y[0]), activation='softmax'))
@@ -110,6 +110,6 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 #fitting and saving the model 
 model.summary()
 
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=500, batch_size=5, verbose=1)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=300, batch_size=5, verbose=1)
 model.save('chatbot_model.h5', hist)
 print("model created")
