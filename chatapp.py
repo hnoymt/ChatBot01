@@ -89,7 +89,7 @@ def send():
 
 
 base = Tk()
-base.title("ถามได้ตอบได้")
+base.title("อัพดุล แนะนำข้อมูลการทำธุรกิจ")
 base.geometry("400x500")
 base.resizable(width=FALSE, height=FALSE)
 #Create Chat window

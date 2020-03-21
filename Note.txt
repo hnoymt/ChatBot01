@@ -1,0 +1,27 @@
+Objecttive:
+สร้าง Chatbot แนะนำการขอใบอนุญาตประกอบธุรกิจ 
+ซึ่งสามารถขอทาง Online ได้ที่ เว็บไซต์ https://biz.govchannel.go.th/
+
+ส่วนประกอบของ Source มี่ 3 ส่วนหลัก
+1.Inient
+2.Trainning_model
+3.Application 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Referance:
+# https://data-flair.training/blogs/python-chatbot-project/
+# https://techwithtim.net/tutorials/ai-chatbot/part-1/

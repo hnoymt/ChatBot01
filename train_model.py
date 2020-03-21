@@ -12,8 +12,6 @@ from tensorflow.keras.optimizers import SGD
 import random
 from pythainlp.tokenize import word_tokenize
 
-# from google.colab import drive
-# drive.mount('/content/gdrive')
 words=[]
 classes = []
 documents = []
@@ -27,8 +25,6 @@ for intent in intents['intents']:
     # print(intent)
     for pattern in intent['patterns']:
         #tokenize each word
-        # w = nltk.word_tokenize(pattern)
-        # print('pattern=>'+ pattern)
         w = word_tokenize(pattern,engine='dict')
         # print(w)
         words.extend(w)
@@ -84,22 +80,19 @@ train_x = list(training[:,0])
 train_y = list(training[:,1])
 print("Training data created")
 
-print(train_x)
-print('===========')
-print(train_y)
+# print(train_x)
+# print('===========')
+# print(train_y)
 
-# Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
-# equal to number of intents to predict output intent with softmax
+# Create model
+#
 model = Sequential()
 model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
 model.add(Dense(units=64, kernel_initializer='uniform', activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
-
 model.add(Dense(64, activation='relu'))
-# model.add(Dropout(0.5))
-
 model.add(Dense(len(train_y[0]), activation='softmax'))
 # Compile model. Stochastic gradient descent with Nesterov accelerated gradient gives good results for this model
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
@@ -110,6 +103,6 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 #fitting and saving the model 
 model.summary()
 
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=300, batch_size=5, verbose=1)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=250, batch_size=20, verbose=1)
 model.save('chatbot_model.h5', hist)
 print("model created")
